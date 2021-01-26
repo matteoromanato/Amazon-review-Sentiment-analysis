@@ -26,7 +26,7 @@ Requirements:
 * gensim
 
 ## Usage
-The code is executable.
+The code is executable but pay attention when the code import the dataset the path may be not correct, upload the dataset on your drive!.
 
 If you are using your PC pay attention on the dataset path. On Colab the path was: 
 ```python
