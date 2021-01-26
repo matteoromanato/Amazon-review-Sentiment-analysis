@@ -1,6 +1,12 @@
 # Data analytics: Sentiment on Amazon reviews
 
-The aim of the project is analyzing some Amazon reviwes to create a Machine Learning model to predict the review's polarity 
+The aim of the project is analyzing some Amazon reviwes to create a Machine Learning model to predict the review's polarity.
+I compare different approach:
+- Lexicon based
+- Supervise Machine Learning (Random forest, Logistic regression)
+- Unsupervised (K-means)
+- AI approach using Google-news-embedded-300
+
 ## Code
 The code is avaible [[here]](https://colab.research.google.com/drive/1bjU-lboFpcfqoZxYxUy5l1CsEtZdDZ_E#scrollTo=p0ADvJCuPJ1B).
 ## Prerequisites
