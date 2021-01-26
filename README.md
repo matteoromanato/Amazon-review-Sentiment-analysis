@@ -3,7 +3,7 @@
 The aim of the project is analyzing some Amazon reviwes to create a Machine Learning model to predict the review's polarity.
 I compare different approach:
 - Lexicon based
-- Supervise Machine Learning (Random forest, Logistic regression)
+- Supervised Machine Learning (Random forest, Logistic regression)
 - Unsupervised (K-means)
 - AI approach using Google-news-embedded-300
 
