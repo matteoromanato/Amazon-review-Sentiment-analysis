@@ -5,7 +5,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
-#from afinn import Afinn
+from afinn import Afinn
 
 st.title('Polarity review')
 html_temp = """ 
