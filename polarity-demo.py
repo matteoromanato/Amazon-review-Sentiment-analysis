@@ -5,7 +5,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
-from afinn import Afinn
+#from afinn import Afinn
 
 st.title('Polarity review')
 html_temp = """ 
@@ -28,12 +28,12 @@ st.write("Write your review example:")
 review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 
 load_model = pickle.load(open('log_classifier.h5', 'rb')) 
-afinn = Afinn()
+#afinn = Afinn()
 
 # Apply model to make predictions
 if st.button("Predict"): 
-    #polarity = classifier.predict(review)
-    polarity = afinn.score(review)
+    polarity = classifier.predict(review)
+    #polarity = afinn.score(review)
     print("polarity value: ",polarity)
     if polarity < 3 and polarity > -3:
         st.success('Polarity neutral') 
