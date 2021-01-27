@@ -4,8 +4,6 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
-import nltk
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 st.title('Polarity review')
 html_temp = """ 
