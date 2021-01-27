@@ -40,10 +40,10 @@ If you are using your PC pay attention on the dataset path. On Colab the path wa
 ```
 ## Demo
 I have upload a backbone for a demo with streamlit, there is some limitations I can't upload the pre-trained model so if you run the notebook file and then store a model you should try the demo in local. Meanwhile I try to fix it.
-Anyway you can how it look [[here]](https://www.kaggle.com/snap/amazon-fine-food-reviews).
+Anyway you can how it look [[here]](https://share.streamlit.io/matteoromanato/amazon-review-sentiment-analysis/main/polarity-demo.py).
 
 ## Data
-The dataset used was **amazon-fine-food-reviews** [[link]](https://share.streamlit.io/matteoromanato/amazon-review-sentiment-analysis/main/polarity-demo.py).
+The dataset used was **amazon-fine-food-reviews** [[link]](https://www.kaggle.com/snap/amazon-fine-food-reviews).
 
 In my project I had 2 dataset that I merge and I took only the instance of the left dataset.
 All the data can provide from the link above don't worry. 
