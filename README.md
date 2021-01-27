@@ -16,10 +16,10 @@ The preferred way is to use Google Colab or a jupiter notebook.
 Use the package manager pip to install the requirements.
 
 ```bash
-pip install requirements.txt
+pip3 install package_name
 ```
 
-Requirements: 
+package: 
 * numpy
 * pandas
 * matplotlib
@@ -38,6 +38,8 @@ If you are using your PC pay attention on the dataset path. On Colab the path wa
 ```python
  '/content/...'
 ```
+## Demo
+I have upload a backbone for a demo with streamlit, there is some limitations I can't upload the pre-trained model so if you run the notebook file and then store a model you should try the demo in local. Meanwhile I try to fix it.
 
 ## Data
 The dataset used was **amazon-fine-food-reviews** [[link]](https://www.kaggle.com/snap/amazon-fine-food-reviews).
