@@ -37,5 +37,6 @@ review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 
 if st.button("Predict"): 
     #polarity = classifier.predict(review)
+    polarity = 0
 st.success('The output is {}'.format(polarity)) 
 
