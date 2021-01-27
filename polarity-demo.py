@@ -1,15 +1,11 @@
-"""
-Come farlo funzionare
-Una volta compilato vai sul cmd nella cartella dove è presente il file
-comando: streamlit run nomefile.py
-"""
-
 import streamlit as st
 # To make things easier later, we're also importing numpy and pandas for
 # working with sample data.
 import numpy as np
 import pandas as pd
 import pickle
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 st.title('Polarity review')
 html_temp = """ 
@@ -34,9 +30,12 @@ review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 #load_model = pickle.load(open('rf_classifier.pkl', 'rb')) 
 
 # Apply model to make predictions
-polarity = null
 if st.button("Predict"): 
     #polarity = classifier.predict(review)
-    polarity = 0
-st.success('The output is {}'.format(polarity)) 
-
+    polarity = -1
+    if polarity == 0:
+        st.success('Polarity neutral') 
+    elif polarity == -1:
+        st.success("Polarity: negative")
+    else:
+        st.success("Polarity: positive")
