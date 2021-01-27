@@ -32,7 +32,7 @@ load_model = pickle.load(open('log_classifier.h5', 'rb'))
 
 # Apply model to make predictions
 if st.button("Predict"): 
-    polarity = load_model.predict(review)
+    polarity = load_model.predict(np.array(review))
     #polarity = afinn.score(review)
     print("polarity value: ",polarity)
     if polarity < 3 and polarity > -3:
