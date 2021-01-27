@@ -27,14 +27,11 @@ link = ""
 st.write("Write your review example:")
 review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 
+load_model = pickle.load(open('rf_classifier.pkl', 'rb')) 
 
-
-#filename = "C:/Users/matte/Desktop/università/magistrale/Data Analytics/progetto/rf_classifier.pkl"
-#load_model = pickle.load(open('rf_classifier.pkl', 'rb')) salva il modello nella stessa cartella repository di github
 # Apply model to make predictions
-#prediction = load_model.predict(review)
-"""
+
 if st.button("Predict"): 
     polarity = classifier.predict(review)
 st.success('The output is {}'.format(polarity)) 
-"""
+
