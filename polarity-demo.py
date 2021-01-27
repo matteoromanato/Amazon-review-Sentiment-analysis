@@ -9,9 +9,7 @@ import streamlit as st
 # working with sample data.
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import pickle
-import joblib
 
 st.title('Polarity review')
 html_temp = """ 
