@@ -29,13 +29,13 @@ review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 review = np.array(review)
 review.reshape(1, -1) 
 
-load_model = pickle.load(open('log_classifier.h5', 'rb')) 
-#afinn = Afinn()
+#load_model = pickle.load(open('log_classifier.h5', 'rb')) 
+afinn = Afinn()
 
 # Apply model to make predictions
 if st.button("Predict"): 
-    polarity = load_model.predict(review)
-    #polarity = afinn.score(review)
+    #polarity = load_model.predict(review)
+    polarity = afinn.score(review)
     print("polarity value: ",polarity)
     if polarity < 3 and polarity > -3:
         st.success('Polarity neutral') 
