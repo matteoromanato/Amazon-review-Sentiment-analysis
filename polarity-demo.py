@@ -31,15 +31,10 @@ review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 
 
 
-filename = "C:/Users/matte/Desktop/università/magistrale/Data Analytics/progetto/rf_classifier.pkl"
-#loaded_model = pickle.load(open(filename, 'rb'))
-#loaded_model = joblib.load(filename)
-"""
-pickle_in = open('C:/Users/matte/Desktop/università/magistrale/Data Analytics/progetto/rf_classifier.pkl', 'rb') 
-print(pickle_in)
-
-classifier = pickle.load(pickle_in) """
-
+#filename = "C:/Users/matte/Desktop/università/magistrale/Data Analytics/progetto/rf_classifier.pkl"
+#load_model = pickle.load(open('rf_classifier.pkl', 'rb')) salva il modello nella stessa cartella repository di github
+# Apply model to make predictions
+#prediction = load_model.predict(review)
 """
 if st.button("Predict"): 
     polarity = classifier.predict(review)
