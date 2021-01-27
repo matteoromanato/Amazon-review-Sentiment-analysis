@@ -31,11 +31,11 @@ st.markdown(html_temp_pic, unsafe_allow_html = True)
 st.write("Write your review example:")
 review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 
-load_model = pickle.load(open('rf_classifier.pkl', 'rb')) 
+#load_model = pickle.load(open('rf_classifier.pkl', 'rb')) 
 
 # Apply model to make predictions
 
 if st.button("Predict"): 
-    polarity = classifier.predict(review)
+    #polarity = classifier.predict(review)
 st.success('The output is {}'.format(polarity)) 
 
