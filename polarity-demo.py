@@ -26,8 +26,6 @@ html_temp_pic = """
 st.markdown(html_temp_pic, unsafe_allow_html = True) 
 st.write("Write your review example:")
 review = st.text_input("Type here", 'I love pizza but this was terrible!!')
-review = np.array(review)
-review.reshape(1, -1) 
 
 #load_model = pickle.load(open('log_classifier.h5', 'rb')) 
 afinn = Afinn()
