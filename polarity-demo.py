@@ -34,7 +34,7 @@ review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 #load_model = pickle.load(open('rf_classifier.pkl', 'rb')) 
 
 # Apply model to make predictions
-
+polarity = 0
 if st.button("Predict"): 
     #polarity = classifier.predict(review)
     polarity = 0
