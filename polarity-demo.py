@@ -7,10 +7,9 @@ import pandas as pd
 import pickle
 from afinn import Afinn
 
-st.title('Polarity review')
 html_temp = """ 
     <div style ="background-color:#92a8d1;padding:13px"> 
-    <h1 style ="color:black;text-align:center;">Streamlit polarity review Classifier ML App </h1> 
+    <h1 style ="color:black;text-align:center;">Polarity review App </h1> 
     </div> 
     """
       
