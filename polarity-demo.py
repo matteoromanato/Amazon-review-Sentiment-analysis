@@ -27,7 +27,7 @@ st.markdown(html_temp_pic, unsafe_allow_html = True)
 st.write("Write your review example:")
 review = st.text_input("Type here", 'I love pizza but this was terrible!!')
 
-load_model = pickle.load(open('log_classfier.pkl', 'rb')) 
+load_model = pickle.load(open('log_classfier.h5', 'rb')) 
 afinn = Afinn()
 
 # Apply model to make predictions
