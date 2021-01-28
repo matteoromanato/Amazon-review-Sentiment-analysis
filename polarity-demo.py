@@ -39,4 +39,4 @@ if st.button("Predict"):
     elif polarity < -3:
         st.success("Polarity: negative \N{nauseated face}")
     else:
-        st.success("Polarity: positive \N{grinning face}"
+        st.success("Polarity: positive \N{grinning face}")
