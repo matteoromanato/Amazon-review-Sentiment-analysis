@@ -35,7 +35,7 @@ if st.button("Predict"):
     polarity = afinn.score(review)
     print("polarity value: ",polarity)
     if polarity < 3 and polarity > -3:
-        st.success('Polarity: neutral \N{neutral face}') 
+        st.success("Polarity: neutral \N{neutral face}") 
     elif polarity < -3:
         st.success("Polarity: negative \N{nauseated face}")
     else:
