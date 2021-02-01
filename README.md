@@ -4,7 +4,7 @@ The aim of the project is analyzing some Amazon reviwes to create a Machine Lear
 I compare different approach:
 - Lexicon based
 - Supervised Machine Learning (Random forest, Logistic regression)
-- Unsupervised (K-means)
+- Unsupervised (K-means, JST)
 - AI approach using Google-news-embedded-300
 
 ## Code
@@ -30,6 +30,7 @@ package:
 * Afinn
 * nlpaug
 * gensim
+* jointtsmodel
 
 ## Usage
 The code is executable but pay attention when the code import the dataset the path may be not correct, upload the dataset on your drive!.
