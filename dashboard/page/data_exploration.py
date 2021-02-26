@@ -82,15 +82,40 @@ def aspect_plot(textIn, att, df):
 
 def custom_plot(df):
     st.markdown("""<hr style="height:2px;border-width:0;color:#e5ecf6;background-color:gray">""", unsafe_allow_html = True)  
-    st.write('custom plot')
-    plot_aspect = st.selectbox("Scegli il plot che vuoi Visualizzare", (' ','Box plot','Pie plot','Sccater plot','Bar plot'))
+    st.write('Custom plot')
+    plot_aspect = st.selectbox("Scegli il plot che vuoi Visualizzare", (' ','Box plot','Pie plot','Scatter plot','Bar plot'))
 
+    if plot_aspect == 'Scatter plot':
+        x = st.selectbox("Scegli attributo sull'asse delle x", list(df.columns))
+        y = st.selectbox("Scegli attributo sull'asse delle y", list(df.columns))
+        color = st.selectbox("Scegli attributo su cui raggruppare i risultati",  list(" ")+list(df.columns))
+        trendline = st.radio("Trendline", ('Si', 'No'))
+
+        if st.checkbox('Plot'):
+            if color and trendline == 'Si':
+                fig = px.scatter(df, x=x, y=y, color=color, trendline="ols", trendline_color_override='red', hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+                st.plotly_chart(fig)
+            elif trendline and not color:
+                fig = px.scatter(df, x=x, y=y, trendline="ols", trendline_color_override='red', hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+                st.plotly_chart(fig)            
+            elif color and trendline == 'No':
+                fig = px.scatter(df, x=x, y=y, color=color, hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+                st.plotly_chart(fig)
+            else:
+                fig = px.scatter(df, x=x, y=y, hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+                st.plotly_chart(fig)
+    
     if plot_aspect == 'Box plot':
         x = st.selectbox("Scegli attributo sull'asse delle x", list(df.columns))
         y = st.selectbox("Scegli attributo sull'asse delle y", list(df.columns))
+        color = st.selectbox("Scegli attributo su cui raggruppare i risultati",  zip(" ",list(df.columns)))
         if st.checkbox('Plot'):
-            fig = px.box(df, x=x, y=y, notched=True, points='all' ,hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
-            st.plotly_chart(fig)
+            if color:
+                fig = px.box(df, x=x, y=y, notched=True, points="all", color=color, hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+                st.plotly_chart(fig)
+            else:
+                fig = px.box(df, x=x, y=y, notched=True, points="all", hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+                st.plotly_chart(fig)
 
 def app():
     
