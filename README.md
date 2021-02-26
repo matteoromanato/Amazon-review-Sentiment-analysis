@@ -40,6 +40,8 @@ If you are using your PC pay attention on the dataset path. On Colab the path wa
  '/content/...'
 ```
 ## Demo
+You can see a dashboard demo [[here]](https://share.streamlit.io/matteoromanato/amazon-review-sentiment-analysis/main/dashboard/dashboard.pyy).
+
 I have upload a backbone for a demo with streamlit, there is some limitations I can't upload the pre-trained model so if you run the notebook file and then store a model you should try the demo in local. Meanwhile I try to fix it.
 
 You can see how it would be [[here]](https://share.streamlit.io/matteoromanato/amazon-review-sentiment-analysis/main/polarity-demo.py).
