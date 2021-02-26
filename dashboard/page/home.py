@@ -37,26 +37,6 @@ def app():
     ### Pre-requisiti
     Il metodo ideale è utilizzare Google Colab o un Jupyter Notebook
 
-    ### Installation
-    Use the package manager pip to install the requirements.
-
-    ```bash
-    pip3 install package_name
-    ```
-
-    package: 
-    * numpy
-    * pandas
-    * matplotlib
-    * sklearn
-    * searborn
-    * wordcloud
-    * nltk
-    * Afinn
-    * nlpaug
-    * gensim
-    * jointtsmodel
-
     ### Usage
     Il codice è eseguibile ma presta attenzione al percorso del dataset quando effettui l'import.
     Il percorso su Colab inizia con: 

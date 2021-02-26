@@ -5,7 +5,6 @@ import base64
 import plotly.express as px
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
-#import statsmodels.api as sm
 
 
 def upload_df():
@@ -74,6 +73,24 @@ def entità_specifica(df, att, textIn):
     #st.plotly_chart(fig1)
     return fig, fig1
 
+def aspect_plot(textIn, att, df):
+    fig, fig1 = entità_specifica(df, att, textIn)
+    st.write('Distribuzioni delle recensioni di '+textIn+' nel tempo')
+    st.plotly_chart(fig)
+    st.write("Indice di soddisfazione dell'utente in base ai prodotti comprati")
+    st.plotly_chart(fig1)
+
+def custom_plot(df):
+    st.markdown("""<hr style="height:2px;border-width:0;color:#e5ecf6;background-color:gray">""", unsafe_allow_html = True)  
+    st.write('custom plot')
+    plot_aspect = st.selectbox("Scegli il plot che vuoi Visualizzare", (' ','Box plot','Pie plot','Sccater plot','Bar plot'))
+
+    if plot_aspect == 'Box plot':
+        x = st.selectbox("Scegli attributo sull'asse delle x", list(df.columns))
+        y = st.selectbox("Scegli attributo sull'asse delle y", list(df.columns))
+        if st.checkbox('Plot'):
+            fig = px.box(df, x=x, y=y, notched=True, points=True ,hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+            st.plotly_chart(fig)
 
 def app():
     
@@ -94,13 +111,9 @@ def app():
     n = st.slider('Quante istanze desideri vedere?', 0, df.shape[0], 25)
     st.dataframe(df.head(n))
     #st.markdown(get_table_download_link(df), unsafe_allow_html=True)
-    # aggiungere sezione a scomparsa per la query sul dataset con tutti i parametri possibili
-    expander_query = st.beta_expander('Query')
-    with expander_query:
-        clicked = st.write('yesss!')
-
-    st.markdown("""<hr style=height:2px;border-width:0;color:gray;background-color:gray"><br>""", unsafe_allow_html = True) 
-
+    
+    st.markdown("""<hr style="height:2px;border-width:0;color:#e5ecf6;background-color:gray">""", unsafe_allow_html = True) 
+    ##################################### SECOND ##########################################################################
     st.write("## Quale aspetto vuoi analizzare?", unsafe_allow_html = True)
     att = st.selectbox("Scegli l'attributo che vuoi controllare", (' ','productid','userid','score','categoria_prodotto'))
     if att != " ":
@@ -116,31 +129,38 @@ def app():
         if att == "userid" :
             textIn = st.text_input("inserisci "+ att +" che vuoi analizzare")
             if textIn:
-                fig, fig1 = entità_specifica(df, att, textIn)
-                st.write('Distribuzioni delle recensioni di '+textIn+' nel tempo')
-                st.plotly_chart(fig)
-                st.write("Indice di soddisfazione dell'utente in base ai prodotti comprati")
-                st.plotly_chart(fig1)
+                aspect_plot(textIn, att, df)
 
         elif att == "productid":
             textIn = st.text_input("inserisci "+ att +" che vuoi analizzare")
             if textIn:
-                fig, fig1 = entità_specifica(df, att, textIn)
-                st.write('Distribuzioni delle recensioni di '+textIn+' nel tempo')
-                st.plotly_chart(fig)
-                st.write("Indice di soddisfazione sul prodotto comprato")
-                st.plotly_chart(fig1)
+                aspect_plot(textIn, att, df)
 
         elif att == "categoria_prodotto":
             textIn = st.text_input("inserisci "+ att +" che vuoi analizzare")
             if textIn:
-                fig, fig1 = entità_specifica(df, att, textIn)
-                st.write('Distribuzioni delle recensioni di '+textIn+' nel tempo')
-                st.plotly_chart(fig)
-                st.write("Indice di soddisfazione sulla categoria prodotto "+textIn)
-                st.plotly_chart(fig1)
+                aspect_plot(textIn, att, df)
+    ##################################### THIRD ##########################################################################
     
-    st.write("## Crea il plot con i dati che preferisci", unsafe_allow_html = True)
-    expander_plot = st.beta_expander('Custom Plot')
-    with expander_plot:
-        clicked = st.write('yesss!')
+    st.markdown("""<hr style="height:2px;border-width:0;color:#e5ecf6;background-color:gray">""", unsafe_allow_html = True) 
+    expander_query = st.beta_expander('Custom Dataset & Plot')
+    with expander_query:
+        exp = st.text_input("Inserisci la query (e.g. score < 3 and/or userid == 'userid')")
+        if exp:
+            if exp == " ":
+                n_ent_1 = st.slider('Quante istanze desideri vedere del dataset originale?', 0, df.shape[0], 25)
+                st.write(df.head(n_ent_1))
+                custom_plot(df)
+            else:
+                n_ent_2 = st.slider('Quante istanze desideri vedere del dataset query?', 0, df.query(exp).shape[0], 25)
+                st.write(df.query(exp).head(n_ent_2))
+
+                if st.checkbox('Vuoi lavorare su questo dataset?'):
+                    new_df = df.query(exp)
+                    st.warning('Dataset aggiornato')
+                    custom_plot(new_df)
+
+  #          if ok == True:
+  #              st.markdown("""<hr style="height:2px;border-width:0;color:#e5ecf6;background-color:gray">""", unsafe_allow_html = True)  
+  #              st.write('custom plot')
+  #              att = st.selectbox("Scegli il plot che vuoi Visualizzare", (' ','Box plot','Pie plot','Sccater plot','Bar plot'))
