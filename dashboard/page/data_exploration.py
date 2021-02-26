@@ -89,7 +89,7 @@ def custom_plot(df):
         x = st.selectbox("Scegli attributo sull'asse delle x", list(df.columns))
         y = st.selectbox("Scegli attributo sull'asse delle y", list(df.columns))
         if st.checkbox('Plot'):
-            fig = px.box(df, x=x, y=y, notched=True, points=True ,hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
+            fig = px.box(df, x=x, y=y, notched=True, points='all' ,hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
             st.plotly_chart(fig)
 
 def app():
