@@ -92,13 +92,13 @@ def custom_plot(df):
         trendline = st.radio("Trendline", ('Si', 'No'))
 
         if st.checkbox('Plot'):
-            if color and trendline == 'Si':
+            if color != " " and trendline == 'Si':
                 fig = px.scatter(df, x=x, y=y, color=color, trendline="ols", trendline_color_override='red', hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
                 st.plotly_chart(fig)
-            elif trendline and color == " ":
+            elif trendline == 'Si' and color == " ":
                 fig = px.scatter(df, x=x, y=y, trendline="ols", trendline_color_override='red', hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
                 st.plotly_chart(fig)            
-            elif color and trendline == 'No':
+            elif color != " " and trendline == 'No':
                 fig = px.scatter(df, x=x, y=y, color=color, hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
                 st.plotly_chart(fig)
             else:
