@@ -108,7 +108,7 @@ def custom_plot(df):
     if plot_aspect == 'Box plot':
         x = st.selectbox("Scegli attributo sull'asse delle x", list(df.columns))
         y = st.selectbox("Scegli attributo sull'asse delle y", list(df.columns))
-        color = st.selectbox("Scegli attributo su cui raggruppare i risultati",  list(" ")+list(df.columns)))
+        color = st.selectbox("Scegli attributo su cui raggruppare i risultati",  list(" ")+list(df.columns))
         if st.checkbox('Plot'):
             if color:
                 fig = px.box(df, x=x, y=y, notched=True, points="all", color=color, hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
