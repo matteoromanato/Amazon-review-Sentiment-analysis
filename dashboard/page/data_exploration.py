@@ -95,7 +95,7 @@ def custom_plot(df):
             if color and trendline == 'Si':
                 fig = px.scatter(df, x=x, y=y, color=color, trendline="ols", trendline_color_override='red', hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
                 st.plotly_chart(fig)
-            elif trendline and not color:
+            elif trendline and color == " ":
                 fig = px.scatter(df, x=x, y=y, trendline="ols", trendline_color_override='red', hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
                 st.plotly_chart(fig)            
             elif color and trendline == 'No':
@@ -110,7 +110,7 @@ def custom_plot(df):
         y = st.selectbox("Scegli attributo sull'asse delle y", list(df.columns))
         color = st.selectbox("Scegli attributo su cui raggruppare i risultati",  list(" ")+list(df.columns))
         if st.checkbox('Plot'):
-            if color:
+            if color != " ":
                 fig = px.box(df, x=x, y=y, notched=True, points="all", color=color, hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
                 st.plotly_chart(fig)
             else:
