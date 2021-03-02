@@ -93,6 +93,6 @@ def app():
         if polarity == 0 :
             st.warning('Polarity: neutral \N{neutral face}') 
         elif polarity < 0:
-            st.error("Polarity: negative \N{nauseated face}")
+            st.error("Polarity: negative :rage:")
         else:
             st.success("Polarity: positive \N{grinning face}")
