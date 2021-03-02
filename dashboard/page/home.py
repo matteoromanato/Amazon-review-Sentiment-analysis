@@ -5,10 +5,10 @@ def app():
     html_temp = """ 
     <br>
     <div>
-        <h2 style ="color:black;text-align:center;"> Home </h2> 
+        <h2 style ="color:black;text-align:center;"> Home </h2> <br>
         Questa dashboard permette di effettuare
         una analisi esporativa di alcune recensioni in Amazon.com
-        e testare la polarità di una recensione. 
+        e testare la polarità di una recensione al momento. 
     </div>
     <br>
     <div>
@@ -22,14 +22,15 @@ def app():
     st.markdown(html_temp, unsafe_allow_html = True) 
 
     readme = """
-
+    <h3 style ="color:black;text-align:center;"> Readme </h3><br> 
     L'obiettivo del progetto era quello di analizzare alcune recensioni in Amazon per evidenziare informazioni utili ai produttori e ai consumatori.
     Successivamente addestrare un modello basato sul machine learning per predire la polarità delle recensioni.
     Ho confrontato diversi approcci:
-    - Lexicon based
-    - Supervised Machine Learning (Random forest, Logistic regression)
-    - Unsupervised (K-means, ASUM)
-    - AI approach using Google-news-embedded-300
+    <ul>
+    <li>Lexicon based</li>
+    <li>Supervised Machine Learning (Random forest, Logistic regression)</li>
+    <li>AI approach using Google-news-embedded-300</li>
+    </ul>
 
     ### Codice
     Il codice è disponibile [[qui]](https://colab.research.google.com/drive/1bjU-lboFpcfqoZxYxUy5l1CsEtZdDZ_E#scrollTo=p0ADvJCuPJ1B).
@@ -45,8 +46,8 @@ def app():
     ```
 
     ### Dataset
-    Il dataset usati era **amazon-fine-food-reviews** [[link]](https://www.kaggle.com/snap/amazon-fine-food-reviews).
-    Il mio progetto aveva due dataset che ho unito in modo da tenere solo le istanze del dataset con meno istanze (erano comunuque tante).
+    Il dataset usato era **amazon-fine-food-reviews** [[link]](https://www.kaggle.com/snap/amazon-fine-food-reviews).
+    Il mio progetto aveva due dataset che ho unito in modo da tenere solo le istanze del dataset con meno istanze.
     
 
     ## Authors

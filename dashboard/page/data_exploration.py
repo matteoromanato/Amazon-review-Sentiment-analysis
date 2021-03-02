@@ -83,7 +83,7 @@ def aspect_plot(textIn, att, df):
 def custom_plot(df):
     st.markdown("""<hr style="height:2px;border-width:0;color:#e5ecf6;background-color:gray">""", unsafe_allow_html = True)  
     st.write('Custom plot')
-    plot_aspect = st.selectbox("Scegli il plot che vuoi Visualizzare", (' ','Box plot','Pie plot','Scatter plot','Bar plot'))
+    plot_aspect = st.selectbox("Scegli il plot che vuoi Visualizzare", (' ','Box plot','Scatter plot','Bar plot'))
 
     if plot_aspect == 'Scatter plot':
         x = st.selectbox("Scegli attributo sull'asse delle x", list(df.columns))
@@ -116,6 +116,69 @@ def custom_plot(df):
             else:
                 fig = px.box(df, x=x, y=y, notched=True, points="all", hover_name='Summary', hover_data=['ProfileName', 'score', 'date'])
                 st.plotly_chart(fig)
+    
+    if plot_aspect == 'Bar plot':
+        radio = st.radio(" ", ('Occorenze', 'Custom'))
+        if st.checkbox('Plot'):
+            if radio == "Occorenze":
+                col1, col2, col3 = st.beta_columns([5.35, 1, 7])
+                with col1:
+                    att = st.selectbox("Scegli attributo da valutare",list(df.columns))
+                    df_occ = pd.DataFrame(df[att].value_counts())
+                    st.write("Occorrenze",df_occ)
+                with col3:
+                    fig = px.bar(df_occ, x=df_occ.index, y=df_occ[att])
+                    fig.update_layout(
+                        autosize=False,
+                        width=350,
+                        height=450,
+                        margin=dict(
+                                l=50,
+                                r=50,
+                                b=50,
+                                t=50,
+                                pad=4
+                            ),
+                    paper_bgcolor="#e5ecf6",) 
+                    st.plotly_chart(fig)
+            if radio == "Custom":
+                col1, col2, col3 = st.beta_columns([5.35, 1, 7])
+                with col1:
+                    x = st.selectbox("Scegli attributo sull'asse x",list(df.columns))
+                    y = st.selectbox("Scegli attributo sull'asse y",list(df.columns))
+                    color = st.selectbox("Scegli attributo su cui raggruppare i risultati",  list(" ")+list(df.columns))
+                with col3:
+                    if color == " ":
+                        fig = px.bar(df, x=x, y=y)
+                        fig.update_layout(
+                            autosize=False,
+                            width=350,
+                            height=450,
+                            margin=dict(
+                                    l=50,
+                                    r=50,
+                                    b=50,
+                                    t=50,
+                                    pad=4
+                                ),
+                        paper_bgcolor="#e5ecf6",)
+                    else:
+                        fig = px.bar(df, x=x, y=y, color=color)
+                        fig.update_layout(
+                            autosize=False,
+                            width=350,
+                            height=450,
+                            margin=dict(
+                                    l=50,
+                                    r=50,
+                                    b=50,
+                                    t=50,
+                                    pad=4
+                                ),
+                        paper_bgcolor="#e5ecf6",)
+                    st.plotly_chart(fig)
+
+
 
 def app():
     
